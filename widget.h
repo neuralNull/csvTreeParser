@@ -7,6 +7,8 @@ namespace Ui {
 class Widget;
 }
 
+class TreeModel;
+
 class Widget : public QWidget
 {
   Q_OBJECT
@@ -22,6 +24,7 @@ private slots:
 
 private:
   Ui::Widget *ui;
+  TreeModel *m_treeModel;
 };
 
 #endif // WIDGET_H

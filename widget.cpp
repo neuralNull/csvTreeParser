@@ -1,5 +1,6 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include "treemodel.h"
 
 #include <QFileDialog>
 #include <QDebug>
@@ -9,6 +10,8 @@ Widget::Widget(QWidget *parent) :
   ui(new Ui::Widget)
 {
   ui->setupUi(this);
+  m_treeModel = new TreeModel(this);
+  ui->treeView->setModel(m_treeModel);
 }
 
 Widget::~Widget()
@@ -35,6 +38,11 @@ void Widget::on_csvLineEdit_returnPressed()
 
 void Widget::parseCsv(const QString &filename)
 {
-  qDebug() << filename;
-  // Parse CSV here
+  QFile f(filename);
+
+  if (f.open(QFile::ReadOnly))
+  {
+    m_treeModel->parseCsvData(QString::fromUtf8(f.readAll()));
+    ui->treeView->expandAll();
+  }
 }

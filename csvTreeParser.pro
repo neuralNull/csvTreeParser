@@ -24,8 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp \
+    treemodel.cpp \
+    treenode.cpp
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    treemodel.h \
+    treenode.h
 
 FORMS    += widget.ui

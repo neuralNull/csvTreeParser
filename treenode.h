@@ -11,18 +11,18 @@ class TreeNode : public QObject
 public:
   explicit TreeNode(QObject *parent = 0);
 
-  TreeNode *parentNode();
+  TreeNode *parentNode() const;
 
   void setId(int id);
   void setTitle(const QString &title);
 
-  int id();
-  QString title();
+  int id() const;
+  QString title() const;
 
   void addChild(TreeNode *child);
 
-  int childCount();
-  TreeNode *child(int index);
+  int childCount() const;
+  TreeNode *child(int index) const;
   void clear();
 
 private:

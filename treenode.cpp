@@ -5,17 +5,17 @@ TreeNode::TreeNode(QObject *parent) :
 {
 }
 
-TreeNode *TreeNode::parentNode()
+TreeNode *TreeNode::parentNode() const
 {
   return dynamic_cast<TreeNode *>(parent());
 }
 
-int TreeNode::id()
+int TreeNode::id() const
 {
   return m_id;
 }
 
-QString TreeNode::title()
+QString TreeNode::title() const
 {
   return m_title;
 }
@@ -36,12 +36,12 @@ void TreeNode::addChild(TreeNode *child)
   child->setParent(this);
 }
 
-int TreeNode::childCount()
+int TreeNode::childCount() const
 {
   return m_children.count();
 }
 
-TreeNode *TreeNode::child(int index)
+TreeNode *TreeNode::child(int index) const
 {
   if (index < 0 || index >= m_children.count()) return nullptr;
   return m_children[index];
